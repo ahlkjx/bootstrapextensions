@@ -10,6 +10,7 @@ HtmlHelper extensions to ease use of the Twitter Bootstrap framework in ASP.NET 
 Base CSS
 --------
 
+- Lists (not description lists)
 - Buttons
 
 Components

@@ -1,0 +1,56 @@
+﻿@using BootstrapExtensions.Base
+@using BootstrapExtensions.Base.Button
+@using (Html.Section("Lists", new { id = "lists" }))
+{
+    <h2>Unordered</h2>
+    <p>A list of items in which the order does <em>not</em> explicity matter.</p>
+    <div class="bs-docs-example">
+        @Html.List(l =>
+        {
+            l.Item("Lorem ipsum dolor sit amet");
+            l.Item("Consectetur adipiscing elit");
+            l.Item("Integer molestie lorem at massa");
+        })
+    </div>
+    <pre class="prettyprint">&#64;Html.List(l =&gt;
+{
+    l.Item("Lorem ipsum dolor sit amet");
+    l.Item("Consectetur adipiscing elit");
+    l.Item("Integer molestie lorem at massa");
+})</pre>
+    
+    <h2>Ordered</h2>
+    <p>A list of items in which the order <em>does</em> explicity matter. Just chain <code>.Ordered()</code></p>
+    <div class="bs-docs-example">
+        @Html.List(l =>
+        {
+            l.Item("Lorem ipsum dolor sit amet");
+            l.Item("Consectetur adipiscing elit");
+            l.Item("Integer molestie lorem at massa");
+        }).Ordered()
+    </div>
+    <pre class="prettyprint">&#64;Html.List(l =&gt;
+{
+    l.Item("Lorem ipsum dolor sit amet");
+    l.Item("Consectetur adipiscing elit");
+    l.Item("Integer molestie lorem at massa");
+}).Ordered()</pre>
+    
+    <h2>Unstyled</h2>
+    <p>A list of items with no <code>list-style</code> or additional left padding. Just chain <code>.Unstyled()</code></p>
+    <div class="bs-docs-example">
+        @Html.List(l =>
+        {
+            l.Item("Lorem ipsum dolor sit amet");
+            l.Item("Consectetur adipiscing elit");
+            l.Item("Integer molestie lorem at massa");
+        }).Unstyled()
+    </div>
+    <pre class="prettyprint">&#64;Html.List(l =&gt;
+{
+    l.Item("Lorem ipsum dolor sit amet");
+    l.Item("Consectetur adipiscing elit");
+    l.Item("Integer molestie lorem at massa");
+}).Unstyled()</pre>
+    
+}

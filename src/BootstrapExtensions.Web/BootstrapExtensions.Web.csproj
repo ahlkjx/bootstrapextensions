@@ -145,6 +145,7 @@
     <Content Include="Views\Home\Base.cshtml" />
     <Content Include="Views\Home\Base\_Form.cshtml" />
     <Content Include="Views\Home\Base\_Button.cshtml" />
+    <Content Include="Views\Home\Base\_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
