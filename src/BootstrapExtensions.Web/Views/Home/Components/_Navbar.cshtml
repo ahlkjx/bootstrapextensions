@@ -1,0 +1,162 @@
+﻿@using BootstrapExtensions.Base
+@using BootstrapExtensions.Components.Navbar
+@using (Html.Section("Navbar", new {id = "navbar"}))
+{
+    <h2>Basic navbar</h2>
+    <p>To start, navbars are static (not fixed to the top) and include support for a project name and basic navigation. Place one anywhere within a <code>.container</code>, which sets the width of your site and content.</p>
+    <div class="bs-docs-example">
+        @Html.Navbar(nav =>
+        {
+            nav.Brand("Title", "#");
+            nav.Links(link =>
+            {
+                link.Link("Home", "#").Active();
+                link.Link("Link", "#");
+                link.Link("Link", "#");
+            });
+        })
+    </div>
+    <pre class="prettyprint linenums">&#64;Html.Navbar(nav =&gt;
+{
+    nav.Brand("Title", "#");
+    nav.Links(link =&gt;
+    {
+        link.Link("Home", "#").Active();
+        link.Link("Link", "#");
+        link.Link("Link", "#");
+    });              
+})</pre>
+    <hr class="bs-docs-separator">
+                
+    <h2>Navbar components</h2>
+    
+    <h3>Brand</h3>
+    <p>A simple link to show your brand or project name only requires calling <code>Brand()</code></p>
+    <div class="bs-docs-example">
+        @Html.Navbar(nav => nav.Brand("Title", "#"))
+    </div>
+    <pre class="prettyprint">&#64;Html.Navbar(nav =&gt; nav.Brand("Title", "#"))</pre>
+    
+    
+    <h3>Nav links</h3>
+    <p>Nav items are simple to add via <code>List()</code>.</p>
+    <div class="bs-docs-example">
+        @Html.Navbar(nav => nav.Links(link =>
+        {
+            link.Link("Home", "#").Active();
+            link.Link("Link", "#");
+            link.Link("Link", "#");
+        }))
+    </div>
+    <pre class="prettyprint">&#64;Html.Navbar(nav =&gt; nav.Links(link =&gt;
+{
+    link.Link("Home", "#").Active();
+    link.Link("Link", "#");
+    link.Link("Link", "#");
+}))</pre>
+    
+    
+    <p>You can easily add dividers to your nav links using <code>Divider()</code>. Just add this between links:</p>
+    <div class="bs-docs-example">
+        @Html.Navbar(nav => nav.Links(link =>
+        {
+            link.Link("Link", "#");
+            link.Divider();
+            link.Link("Link", "#");
+        }))
+    </div>
+    <pre class="prettyprint">&#64;Html.Navbar(nav =&gt; nav.Links(link =&gt;
+{
+    ...
+    link.Divider();
+    ...
+}))</pre>
+
+    <h3>Text</h3>
+    <p>Use <code>Text()</code> to add text elements to the navbar</p>
+
+    <hr class="bs-docs-separator">
+
+    <h2>Optional display variations</h2>
+    <p>Fix the navbar to the top or bottom of the viewport by chaining methods on the <code>Navbar()</code>.</p>
+
+    <h3>Fixed to top</h3>
+    <p>Add <code>.Fixed()</code> or <code>.Fixed(true)</code> and remember to account for the hidden area underneath it by adding at least 40px <code>padding</code> to the <code>&lt;body&gt;</code>. Be sure to add this after the core Bootstrap CSS and before the optional responsive CSS.</p>
+    <div class="bs-docs-example bs-navbar-top-example">
+        @Html.Navbar(nav =>
+        {
+            nav.Brand("&nbsp;&nbsp;&nbsp;Title", "#");
+            nav.Links(link =>
+            {
+                link.Link("Home", "#").Active();
+                link.Link("Link", "#");
+                link.Link("Link", "#");
+            });
+        }, new { style="position:absolute"}).Fixed()
+    </div>
+    <pre class="prettyprint">&#64;Html.Navbar( ... ).Fixed()</pre>
+
+    <h3>Fixed to bottom</h3>
+    <p>Add <code>.Fixed(false)</code> instead.</p>
+    <div class="bs-docs-example bs-navbar-bottom-example">
+        @Html.Navbar(nav =>
+        {
+            nav.Brand("&nbsp;&nbsp;&nbsp;Title", "#");
+            nav.Links(link =>
+            {
+                link.Link("Home", "#").Active();
+                link.Link("Link", "#");
+                link.Link("Link", "#");
+            });
+        }, new { @style = "position:absolute" }).Fixed(false)
+    </div>
+    <pre class="prettyprint">&#64;Html.Navbar( ... ).Fixed(false)</pre>
+
+    <h3>Static top navbar</h3>
+    <p>Create a full-width navbar that scrolls away with the page by adding <code>.Static()</code>. Unlike the <code>.Fixed(true)</code> class, you do not need to change any padding on the <code>body</code>.</p>
+    <div class="bs-docs-example bs-navbar-top-example">
+        @Html.Navbar(nav =>
+        {
+            nav.Brand("&nbsp;&nbsp;&nbsp;Title", "#");
+            nav.Links(link =>
+            {
+                link.Link("Home", "#").Active();
+                link.Link("Link", "#");
+                link.Link("Link", "#");
+            });
+        }).Static()
+    </div>
+    <pre class="prettyprint">&#64;Html.Navbar( ... ).Static()</pre>
+
+    <hr class="bs-docs-separator" />
+
+
+    <h2>Responsive navbar</h2>
+    <p>To implement a collapsing responsive navbar, wrap your navbar content in a containing div, <code>.nav-collapse.collapse</code>, and add the navbar toggle button, <code>.btn-navbar</code>.</p>
+    <div class="bs-docs-example">
+      TODO
+    </div>
+    <div class="alert alert-info">
+        <strong>Heads up!</strong> The responsive navbar requires the <a href="./javascript.html#collapse">collapse plugin</a> and <a href="./scaffolding.html#responsive">responsive Bootstrap CSS file</a>.
+    </div>
+
+    <hr class="bs-docs-separator"/>
+
+
+    <h2>Inverted variation</h2>
+    <p>Modify the look of the navbar by chaining <code>.Inverse()</code>.</p>
+    <div class="bs-docs-example">
+        @Html.Navbar(nav =>
+        {
+            nav.Brand("&nbsp;&nbsp;&nbsp;Title", "#");
+            nav.Links(link =>
+            {
+                link.Link("Home", "#").Active();
+                link.Link("Link", "#");
+                link.Link("Link", "#");
+            });
+        }).Inverse()
+    </div>
+    <pre class="prettyprint">&#64;Html.Navbar( ... ).Inverse()</pre>
+
+}

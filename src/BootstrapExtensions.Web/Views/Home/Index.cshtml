@@ -1,0 +1,23 @@
+﻿@using BootstrapExtensions.Base
+<div class="jumbotron masthead">
+    <div class="container">
+        <h1>Bootstrap Extensions</h1>
+        <p>HtmlHelper extensions to ease use of the Twitter Bootstrap framework in ASP.NET MVC web applications</p>
+        @*<p><a href="assets/bootstrap.zip" class="btn btn-primary btn-large">Download Bootstrap Extensions</a></p>*@
+        @Html.List(x =>
+                       {
+                           x.Link("GitHub project (Bootstrap Extensions)", "http://github.com/jordanwallwork/bootstrapextensions");
+                           x.Link("GitHub project (Twitter Bootstrap)", "http://github.com/twitter/bootstrap");
+                           /*x.Item("Version 0.1");*/
+                       }, new { @class = "masthead-links" })
+    </div>
+</div>
+
+<div class="bs-docs-social">
+    <div class="container">
+        <ul class="bs-docs-social-buttons">
+            <li><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=jordanwallwork&repo=bootstrapextensions&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe></li>
+            <li><iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=jordanwallwork&repo=bootstrapextensions&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe></li>
+        </ul>
+    </div>
+</div>

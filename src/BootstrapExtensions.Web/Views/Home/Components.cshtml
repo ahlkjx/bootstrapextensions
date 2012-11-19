@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Components";
+}
+
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Components</h1>
+    <p class="lead">Dozens of reusable components built to provide navigation, alerts, popovers, and more.</p>
+  </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="span3 bs-docs-sidebar">
+            @Html.Partial("Components/_Subnav")
+        </div>
+        <div class="span9">
+            @Html.Partial("Components/_Navbar")
+        </div>
+    </div>
+</div>

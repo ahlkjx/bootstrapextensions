@@ -1,0 +1,26 @@
+﻿@using BootstrapExtensions.Base
+@{
+    ViewBag.Title = "Base";
+}
+
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Base</h1>
+    <p class="lead">Fundamental HTML elements styled and enhanced with extensible classes.</p>
+  </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="span3 bs-docs-sidebar">
+            @Html.List(nav =>
+            {
+                nav.Link("<i class=\"icon-chevron-right\"></i> Buttons", "#buttons");
+                /*nav.Link("<i class=\"icon-chevron-right\"></i> Form", "#form");*/
+            }, new { @class="nav nav-list bs-docs-sidenav affix-top" })
+        </div>
+        <div class="span9">
+            @Html.Partial("Base/_Button")
+            @*@Html.Partial("Base/_Form")*@
+        </div>
+    </div>
+</div>

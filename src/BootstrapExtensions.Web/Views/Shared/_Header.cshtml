@@ -1,0 +1,15 @@
+﻿@using BootstrapExtensions.Components.Navbar
+
+@Html.Navbar("Home", nav =>
+                 {
+                     nav.Brand("Bootstrap Extensions", Url.Action("Index", "Home"));
+                     nav.Links(x =>
+                               {
+                                   x.Link("Home", Url.Action("Index", "Home"), "Home");
+                                   x.Link("Base CSS", Url.Action("Base", "Home"), "BaseCss");
+                                   x.Link("Components", Url.Action("Components", "Home"), "Components");
+                                   x.Divider();
+                                   x.Link("jordanwalllwork.co.uk", "http://www.jordanwallwork.co.uk");
+                               });
+                     
+                 }).Inverse().Responsive().Fixed()

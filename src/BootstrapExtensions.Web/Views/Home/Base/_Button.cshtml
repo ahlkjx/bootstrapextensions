@@ -1,0 +1,122 @@
+﻿@using BootstrapExtensions.Base
+@using BootstrapExtensions.Base.Button
+@using (Html.Section("Buttons", new { id = "buttons" }))
+{
+    <h2>Default buttons</h2>
+    <p> Use <code>Html.Button()</code> to create styled buttons. Configure additional settings by passing in a <code>ButtonSettings</code> parameter  or through the overloads</p>
+    <table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+        <th>Button</th>
+        <th>Category</th>
+        <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Html.Button("Default")</td>
+            <td><code>null (default)</code></td>
+            <td>Standard gray button with gradient</td>
+        </tr>
+        <tr>
+            <td>@Html.Button("Primary", new ButtonSettings { Category = Category.Primary })</td>
+            <td><code>Category.Primary</code></td>
+            <td>Provides extra visual weight and identifies the primary action in a set of buttons</td>
+        </tr>
+        <tr>
+            <td>@Html.Button("Info", new ButtonSettings { Category = Category.Info })</td>
+            <td><code>Category.Info</code></td>
+            <td>Used as an alternative to the default styles</td>
+        </tr>
+        <tr>
+            <td>@Html.Button("Success", new ButtonSettings { Category = Category.Success })</td>
+            <td><code>Category.Success</code></td>
+            <td>Indicates a successful or positive action</td>
+        </tr>
+        <tr>
+            <td>@Html.Button("Warning", new ButtonSettings { Category = Category.Warning })</td>
+            <td><code>Category.Warning</code></td>
+            <td>Indicates caution should be taken with this action</td>
+        </tr>
+        <tr>
+            <td>@Html.Button("Danger", new ButtonSettings { Category = Category.Danger })</td>
+            <td><code>Category.Danger</code></td>
+            <td>Indicates a dangerous or potentially negative action</td>
+        </tr>
+        <tr>
+            <td>@Html.Button("Inverse", new ButtonSettings { Category = Category.Inverse })</td>
+            <td><code>Category.Inverse</code></td>
+            <td>Alternate dark gray button, not tied to a semantic action or use</td>
+        </tr>
+        <tr>
+            <td>@Html.Button("Link", new ButtonSettings { Category = Category.Link })</td>
+            <td><code>Category.Link</code></td>
+            <td>Deemphasize a button by making it look like a link while maintaining button behavior</td>
+        </tr>
+    </tbody>
+    </table>
+
+    <h4>Cross browser compatibility</h4>
+    <p>IE9 doesn't crop background gradients on rounded corners, so we remove it. Related, IE9 jankifies disabled <code>button</code> elements, rendering text gray with a nasty text-shadow that we cannot fix.</p>
+
+    <h2>Button sizes</h2>
+    <p>Fancy larger or smaller buttons? Add <code>Size = Size.Large</code>, <code>Size = Size.Small</code>, or <code>Size = Size.Small</code> for additional sizes</p>
+    <div class="bs-docs-example">
+        <p>
+            @Html.Button("Large Button", new ButtonSettings { Category = Category.Primary, Size = Size.Large })
+            @Html.Button("Large Button", new ButtonSettings { Size = Size.Large })
+        </p>
+        <p>
+            @Html.Button("Default Button", new ButtonSettings { Category = Category.Primary })
+            @Html.Button("Default Button")
+        </p>
+        <p>
+            @Html.Button("Small Button", new ButtonSettings { Category = Category.Primary, Size = Size.Small })
+            @Html.Button("Small Button", new ButtonSettings { Size = Size.Small })
+        </p>
+        <p>
+            @Html.Button("Mini Button", new ButtonSettings { Category = Category.Primary, Size = Size.Mini })
+            @Html.Button("Mini Button", new ButtonSettings { Size = Size.Mini })
+        </p>
+    </div>
+    <pre class="prettyprint">&lt;p&gt;
+    &#64;Html.Button("Large Button", new ButtonSettings { Category = Category.Primary, Size = Size.Large })
+    &#64;Html.Button("Large Button", new ButtonSettings { Size = Size.Large })
+&lt;/p&gt;
+&lt;p&gt;
+    &#64;Html.Button("Default Button", new ButtonSettings { Category = Category.Primary })
+    &#64;Html.Button("Default Button")
+&lt;/p&gt;
+&lt;p&gt;
+    &#64;Html.Button("Small Button", new ButtonSettings { Category = Category.Primary, Size = Size.Small })
+    &#64;Html.Button("Small Button", new ButtonSettings { Size = Size.Small })
+&lt;/p&gt;
+&lt;p&gt;
+    &#64;Html.Button("Mini Button", new ButtonSettings { Category = Category.Primary, Size = Size.Mini })
+    &#64;Html.Button("Mini Button", new ButtonSettings { Size = Size.Mini })
+&lt;/p&gt;</pre>
+    
+    <p>Create block level buttons—those that span the full width of a parent— by setting <code>BlockLevel = true</code>.</p>
+    <div class="bs-docs-example">
+        <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
+            @Html.Button("Block level button", new ButtonSettings { Category = Category.Primary, Size = Size.Large, BlockLevel = true })
+            @Html.Button("Block level button", new ButtonSettings { Size = Size.Large, BlockLevel = true })
+        </div>
+    </div>
+    <pre>&#64;Html.Button("Block level button", new ButtonSettings { Category = Category.Primary, Size = Size.Large, BlockLevel = true })
+&#64;Html.Button("Block level button", new ButtonSettings { Size = Size.Large, BlockLevel = true })</pre>
+
+    <h2>Disabled state</h2>
+    <p>Make buttons look unclickable by fading them back 50% by setting <code>Disabled = true</code></p>
+
+    <div class="bs-docs-example">
+        @Html.Button("Disabled button", new ButtonSettings { Category = Category.Primary, Size = Size.Large, Disabled = true })
+        @Html.Button("Disabled button", new ButtonSettings { Size = Size.Large, Disabled = true })
+    </div>
+    <pre>&#64;Html.Button("Block level button", new ButtonSettings { Category = Category.Primary, Size = Size.Large, Disabled = true })
+&#64;Html.Button("Block level button", new ButtonSettings { Size = Size.Large, Disabled = true })</pre>
+    <p>
+        <span class="label label-info">Heads up!</span>
+        Using <code>Disabled = true</code> on <code>&lt;a&gt;</code> elements is only for aesthetic; you must use custom JavaScript to disable links here.
+    </p>
+}
