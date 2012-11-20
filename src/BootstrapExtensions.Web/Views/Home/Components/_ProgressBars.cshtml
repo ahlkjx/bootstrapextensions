@@ -1,0 +1,83 @@
+﻿@using BootstrapExtensions.Base
+@using BootstrapExtensions.Components.Progress
+@using (Html.Section("Progress bars", "For loading, redirecting, or action status", new {id = "progress"}))
+{
+    <h2>Examples and markup</h2>
+
+    <h3>Basic</h3>
+    <p>Default progress bar with a vertical gradient.</p>
+    <div class="bs-docs-example">
+        @Html.ProgressBar(60)
+    </div>
+    <pre class="prettyprint">&#64;Html.ProgressBar(60)</pre>
+
+    <h3>Striped</h3>
+    <p>Uses a gradient to create a striped effect. Not available in IE7-8.</p>
+    <div class="bs-docs-example">
+        @Html.ProgressBar(20).Striped()
+    </div>
+    <pre class="prettyprint">&#64;Html.ProgressBar(20).Striped()</pre>
+
+    <h3>Animated</h3>
+    <p>Add <code>.Animated()</code> to animate the stripes right to left. Not available in all versions of IE.</p>
+    <div class="bs-docs-example">
+        @Html.ProgressBar(40).Animated()
+    </div>
+    <pre class="prettyprint">&#64;Html.ProgressBar(40).Animated()</pre>
+
+    <h3>Stacked</h3>
+    <p>Define multiple bars in the same <code>ProgressBar</code> to stack them.</p>
+    <div class="bs-docs-example">
+        @Html.ProgressBar(b =>
+        {
+            b.Bar(35).Success();
+            b.Bar(20).Warning();
+            b.Bar(10).Danger();
+        })
+    </div>
+<pre class="prettyprint">&#64;Html.ProgressBar(b =&gt;
+{
+    b.Bar(35).Success();
+    b.Bar(20).Warning();
+    b.Bar(10).Danger();
+})</pre>
+
+
+    <hr class="bs-docs-separator">
+
+
+    <h2>Options</h2>
+
+    <h3>Additional colors</h3>
+    <p>Progress bars use some of the same button and alert classes for consistent styles.</p>
+    <div class="bs-docs-example">
+        @Html.ProgressBar(20).Info()
+        @Html.ProgressBar(40).Success()
+        @Html.ProgressBar(60).Warning()
+        @Html.ProgressBar(80).Danger()
+    </div>
+<pre class="prettyprint">&#64;Html.ProgressBar(20).Info()
+&#64;Html.ProgressBar(40).Success()
+&#64;Html.ProgressBar(60).Warning()
+&#64;Html.ProgressBar(80).Danger()</pre>
+
+    <h3>Striped bars</h3>
+    <p>Similar to the solid colors, we have varied striped progress bars.</p>
+    <div class="bs-docs-example">
+        @Html.ProgressBar(20).Info().Striped()
+        @Html.ProgressBar(40).Success().Striped()
+        @Html.ProgressBar(60).Warning().Striped()
+        @Html.ProgressBar(80).Danger().Striped()
+    </div>
+<pre class="prettyprint">&#64;Html.ProgressBar(20).Info().Striped()
+&#64;Html.ProgressBar(40).Success().Striped()
+&#64;Html.ProgressBar(60).Warning().Striped()
+&#64;Html.ProgressBar(80).Danger().Striped()</pre>
+
+
+    <hr class="bs-docs-separator">
+
+    <h2>Browser support</h2>
+    <p>Progress bars use CSS3 gradients, transitions, and animations to achieve all their effects. These features are not supported in IE7-9 or older versions of Firefox.</p>
+    <p>Versions earlier than Internet Explorer 10 and Opera 12 do not support animations.</p>
+}

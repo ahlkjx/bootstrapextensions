@@ -132,6 +132,7 @@
     <Content Include="Views\Home\Base\_Button.cshtml" />
     <Content Include="Views\Home\Base\_List.cshtml" />
     <Content Include="Views\Home\Components\_ButtonGroups.cshtml" />
+    <Content Include="Views\Home\Components\_ProgressBars.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

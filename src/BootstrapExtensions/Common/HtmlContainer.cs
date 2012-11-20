@@ -8,6 +8,8 @@ namespace BootstrapExtensions.Common
 {
     public abstract class HtmlContainer : IHtmlString
     {
+        public bool SelfClosing { get; set; }
+        public string HtmlTag { get; set; }
         public HtmlAttributes HtmlAttributes = new HtmlAttributes();
 
         protected HtmlContainer()
@@ -17,14 +19,14 @@ namespace BootstrapExtensions.Common
 
         protected virtual string StartHtml()
         {
-            return "";
+            return string.Format("<{0} {1}>", HtmlTag, HtmlAttributes);
         }
 
         public string InnerHtml { get; set; }
 
         protected virtual string EndHtml()
         {
-            return "";
+            return string.Format("</{0}>", HtmlTag);
         }
 
         /// <summary>
@@ -44,8 +46,10 @@ namespace BootstrapExtensions.Common
             InnerHtml += html;
         }
 
-        public string ToHtmlString()
+        public virtual string ToHtmlString()
         {
+            if (SelfClosing && string.IsNullOrEmpty(InnerHtml))
+                return string.Format("<{0} {1}/>", HtmlTag, HtmlAttributes);
             return StartHtml() + InnerHtml + EndHtml();
         }
     }
@@ -55,6 +59,11 @@ namespace BootstrapExtensions.Common
         private readonly IDictionary<string, object> _attributes = new Dictionary<string, object>();
 
         public HtmlAttributes() {}
+
+        public HtmlAttributes(IDictionary<string,object> htmlAttributes)
+        {
+            _attributes = htmlAttributes;
+        }
 
         public HtmlAttributes(object htmlAttributes)
         {
@@ -89,6 +98,11 @@ namespace BootstrapExtensions.Common
         public override string ToString()
         {
             return string.Join(" ", _attributes.Select(x => x.Key + "=\"" + x.Value + "\""));
+        }
+
+        public HtmlAttributes Clone()
+        {
+            return new HtmlAttributes(_attributes.ToDictionary(x => x.Key, x => x.Value));
         }
     }
 }

@@ -7,6 +7,11 @@ namespace BootstrapExtensions.Base
     {
         public static CloseableHtml Section(this HtmlHelper html, string title, object htmlAttributes = null)
         {
+            return Section(html, title, null, htmlAttributes);
+        }
+
+        public static CloseableHtml Section(this HtmlHelper html, string title, string subTitle = null, object htmlAttributes = null)
+        {
             var dictionary = HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes ?? new{});
             html.ViewContext.Writer.Write("<section " +
                 string.Join(" ", dictionary.Select(x => string.Format("{0}=\"{1}\"", x.Key, x.Value))) +

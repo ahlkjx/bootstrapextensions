@@ -59,6 +59,7 @@
     <Compile Include="Components\Navbar\Navbar.cs" />
     <Compile Include="Components\Navbar\NavbarBuilder.cs" />
     <Compile Include="Components\Navbar\NavbarExtensions.cs" />
+    <Compile Include="Components\Progress\ProgressBarExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

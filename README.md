@@ -18,3 +18,4 @@ Components
 
 - Button groups + toolbars
 - Navbar
+- Progress bars
