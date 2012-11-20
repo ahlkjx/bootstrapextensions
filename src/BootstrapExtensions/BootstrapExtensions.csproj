@@ -55,6 +55,7 @@
     <Compile Include="Base\List\ListExtensions.cs" />
     <Compile Include="Base\SectionExtensions.cs" />
     <Compile Include="Common\HtmlContainer.cs" />
+    <Compile Include="Components\ButtonGroup\ButtonGroupExtensions.cs" />
     <Compile Include="Components\Navbar\Navbar.cs" />
     <Compile Include="Components\Navbar\NavbarBuilder.cs" />
     <Compile Include="Components\Navbar\NavbarExtensions.cs" />

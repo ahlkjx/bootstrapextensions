@@ -1,4 +1,5 @@
-﻿@{
+﻿@using BootstrapExtensions.Base
+@{
     ViewBag.Title = "Components";
 }
 
@@ -11,9 +12,14 @@
 <div class="container">
     <div class="row">
         <div class="span3 bs-docs-sidebar">
-            @Html.Partial("Components/_Subnav")
+            @Html.List(nav =>
+            {
+                nav.Link("<i class=\"icon-chevron-right\"></i> Button groups", "#buttonGroups");
+                nav.Link("<i class=\"icon-chevron-right\"></i> Navbar", "#navbar");
+            }, new { @class="nav nav-list bs-docs-sidenav affix-top" })
         </div>
         <div class="span9">
+            @Html.Partial("Components/_ButtonGroups")
             @Html.Partial("Components/_Navbar")
         </div>
     </div>

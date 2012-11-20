@@ -127,11 +127,11 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Home\Components.cshtml" />
     <Content Include="Views\Home\Components\_Navbar.cshtml" />
-    <Content Include="Views\Home\Components\_Subnav.cshtml" />
     <Content Include="Views\Home\Base.cshtml" />
     <Content Include="Views\Home\Base\_Form.cshtml" />
     <Content Include="Views\Home\Base\_Button.cshtml" />
     <Content Include="Views\Home\Base\_List.cshtml" />
+    <Content Include="Views\Home\Components\_ButtonGroups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

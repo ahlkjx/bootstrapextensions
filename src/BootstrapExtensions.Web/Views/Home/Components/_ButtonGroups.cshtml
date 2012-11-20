@@ -1,0 +1,57 @@
+﻿@using BootstrapExtensions.Base
+@using BootstrapExtensions.Base.Button
+@using BootstrapExtensions.Components.ButtonGroup
+@using BootstrapExtensions.Components.Navbar
+@using (Html.Section("Button groups", new {id = "buttonGroups"}))
+{
+    <h2>Examples</h2>
+    <p>Two basic options, along with two more specific variations.</p>
+
+    <h3>Single button group</h3>
+    <p>Wrap a list of <code>Button()</code> elements in <code>Html.ButtonGroup()</code>.</p>
+    <div class="bs-docs-example">
+        @Html.ButtonGroup(
+            Html.Button("Left"),
+            Html.Button("Middle"),
+            Html.Button("Right")
+        )
+    </div>
+    <pre class="prettyprint">&#64;Html.ButtonGroup(
+    Html.Button("Left"),
+    Html.Button("Middle"),
+    Html.Button("Right")
+)</pre>
+
+    <h3>Multiple button groups</h3>
+    <p>Combine sets of <code>ButtonGroup()</code> into a <code>Toolbar()</code> for more complex components.</p>
+    <div class="bs-docs-example">
+        @Html.Toolbar(
+            Html.ButtonGroup(Html.Button("1"), Html.Button("2"), Html.Button("3"), Html.Button("4")),
+            Html.ButtonGroup(Html.Button("5"), Html.Button("6"), Html.Button("7")),
+            Html.ButtonGroup(Html.Button("8"))
+        )
+    </div>
+<pre class="prettyprint">&#64;Html.Toolbar(
+    Html.ButtonGroup(Html.Button("1"), Html.Button("2"), Html.Button("3"), Html.Button("4")),
+    Html.ButtonGroup(Html.Button("5"), Html.Button("6"), Html.Button("7")),
+    Html.ButtonGroup(Html.Button("8"))
+)</pre>
+
+    <h3>Vertical button groups</h3>
+    <p>Make a set of buttons appear vertically stacked rather than horizontally by setting <code>vertical</code> to <code>true</code> in one of the overloads.</p>
+    <div class="bs-docs-example">
+        @Html.ButtonGroup(true,
+            Html.Button("<i class=\"icon-align-left\"></i>"),
+            Html.Button("<i class=\"icon-align-center\"></i>"),
+            Html.Button("<i class=\"icon-align-right\"></i>"),
+            Html.Button("<i class=\"icon-align-justify\"></i>")
+        )
+    </div>
+    <pre class="prettyprint">&#64;Html.ButtonGroup(true, ... )</pre>
+
+    <hr class="bs-docs-separator">
+
+    @*<h4>Dropdowns in button groups</h4>
+    <p><span class="label label-info">Heads up!</span> Buttons with dropdowns must be individually wrapped in their own <code>.btn-group</code> within a <code>.btn-toolbar</code> for proper rendering.</p>*@
+
+}
