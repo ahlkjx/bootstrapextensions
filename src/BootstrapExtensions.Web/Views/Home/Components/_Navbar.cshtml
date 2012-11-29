@@ -1,4 +1,6 @@
 ﻿@using BootstrapExtensions.Base
+@using BootstrapExtensions.Base.Button
+@using BootstrapExtensions.Components.Alert
 @using BootstrapExtensions.Components.Navbar
 @using (Html.Section("Navbar", new {id = "navbar"}))
 {
@@ -39,7 +41,7 @@
     
     
     <h3>Nav links</h3>
-    <p>Nav items are simple to add via <code>List()</code>.</p>
+    <p>Nav items are simple to add via <code>Links()</code>.</p>
     <div class="bs-docs-example">
         @Html.Navbar(nav => nav.Links(link =>
         {
@@ -133,12 +135,13 @@
 
     <h2>Responsive navbar</h2>
     <p>To implement a collapsing responsive navbar, wrap your navbar content in a containing div, <code>.nav-collapse.collapse</code>, and add the navbar toggle button, <code>.btn-navbar</code>.</p>
-    <div class="bs-docs-example">
+    <div class="bs-docs-example">   
       TODO
     </div>
     <div class="alert alert-info">
-        <strong>Heads up!</strong> The responsive navbar requires the <a href="./javascript.html#collapse">collapse plugin</a> and <a href="./scaffolding.html#responsive">responsive Bootstrap CSS file</a>.
+        <strong>Heads up!</strong> 
     </div>
+    @Html.Alert("Heads up!", "The responsive navbar requires the <a href=\"./javascript.html#collapse\">collapse plugin</a> and <a href=\"./scaffolding.html#responsive\">responsive Bootstrap CSS file</a>.", Category.Info)
 
     <hr class="bs-docs-separator"/>
 

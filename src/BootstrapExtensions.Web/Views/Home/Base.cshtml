@@ -16,13 +16,13 @@
             {
                 nav.Link("<i class=\"icon-chevron-right\"></i> Lists", "#lists");
                 nav.Link("<i class=\"icon-chevron-right\"></i> Buttons", "#buttons");
-                /*nav.Link("<i class=\"icon-chevron-right\"></i> Form", "#form");*/
+                nav.Link("<i class=\"icon-chevron-right\"></i> Form", "#form");
             }, new { @class="nav nav-list bs-docs-sidenav affix-top" })
         </div>
         <div class="span9">
             @Html.Partial("Base/_List")
             @Html.Partial("Base/_Button")
-            @*@Html.Partial("Base/_Form")*@
+            @Html.Partial("Base/_Form")
         </div>
     </div>
 </div>

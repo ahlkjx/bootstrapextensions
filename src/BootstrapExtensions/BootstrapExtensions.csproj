@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,12 +50,14 @@
     <Compile Include="Base\Button\Tag.cs" />
     <Compile Include="Base\CloseableHtml.cs" />
     <Compile Include="Base\Form\FormExtensions.cs" />
+    <Compile Include="Base\Form\FormLayout.cs" />
     <Compile Include="Base\List\HtmlList.cs" />
     <Compile Include="Base\List\HtmlListBuilder.cs" />
     <Compile Include="Base\List\HtmlListItem.cs" />
     <Compile Include="Base\List\ListExtensions.cs" />
     <Compile Include="Base\SectionExtensions.cs" />
     <Compile Include="Common\HtmlContainer.cs" />
+    <Compile Include="Components\Alert\AlertExtensions.cs" />
     <Compile Include="Components\ButtonGroup\ButtonGroupExtensions.cs" />
     <Compile Include="Components\Navbar\Navbar.cs" />
     <Compile Include="Components\Navbar\NavbarBuilder.cs" />
