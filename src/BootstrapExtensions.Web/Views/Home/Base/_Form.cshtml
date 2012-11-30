@@ -104,7 +104,26 @@
     <p>With the exception of checkboxes and radios, few input types require additional markup, and so existing form code can usually be reused with no changes.</p>
     <p>It is recommended however to use Bootstrap Extension's <code>Html.LabelAndControl()</code> helper when rendering form controls, as it automatically adjusts the markup dependent on form type (notably horizontal forms)@*, and also offers an easy way to chain input modifiers (including prepended/appended buttons and text and validation states)*@.</p>
     
+    <hr class="bs-docs-separator">
+    
+    <h2>Extending form controls</h2>
+    <p>Adding on top of existing browser controls, Bootstrap includes other useful form components.</p>
 
+    <h3>Prepended and appended inputs</h3>
+    <p>Add text or buttons before or after any text-based input. Do note that <code>select</code> elements are not supported here.</p>
+    using (Html.Form("Base", "Home", FormMethod.Get, new { @class = "bs-docs-example" }))
+    {
+        @Html.LabelAndControl(Html.TextBox("Prepend"))
+        @Html.LabelAndControl(Html.TextBox("Append")).Append("Append")
+        @Html.LabelAndControl(Html.TextBox("PrependAndAppend")).Prepend("Prepend").Append("Append")
+    }
+    <pre class="prettyprint">using (Html.Form())
+{
+    &#64;Html.LabelAndControl(Html.TextBox("Prepend")).Prepend("Prepend")
+    &#64;Html.LabelAndControl(Html.TextBox("Append")).Append("Append")
+    &#64;Html.LabelAndControl(Html.TextBox("PrependAndAppend")).Prepend("Prepend").Append("Append")
+}</pre>
+    
     <h3>Validation States</h3>
     <p>Bootstrap includes validation styles for error, warning, info, and success messages. To use, simply chain the appropriate method:</p>
     using (Html.HorizontalForm("Base", "Home", FormMethod.Get, new { @class = "bs-docs-example" }))
@@ -114,7 +133,7 @@
         @Html.LabelAndControl("Info", "Input with info", Html.TextBox("Info")).Info()
         @Html.LabelAndControl("Success", "Input with success", Html.TextBox("Success")).Success()
     }
-    <pre class="prettyprint">using (Html.HorizontalForm("Base", "Home", FormMethod.Get, new { &#64;class = "bs-docs-example" }))
+    <pre class="prettyprint">using (Html.HorizontalForm())
 {
     &#64;Html.LabelAndControl("Warning", "Input with warning", Html.TextBox("Warning")).Warning()
     &#64;Html.LabelAndControl("Error", "Input with error", Html.TextBox("Error")).Error()
