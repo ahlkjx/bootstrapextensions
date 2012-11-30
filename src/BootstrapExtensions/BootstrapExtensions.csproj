@@ -51,6 +51,7 @@
     <Compile Include="Base\CloseableHtml.cs" />
     <Compile Include="Base\Form\FormExtensions.cs" />
     <Compile Include="Base\Form\FormLayout.cs" />
+    <Compile Include="Base\Form\Label\LabelExtensions.cs" />
     <Compile Include="Base\List\HtmlList.cs" />
     <Compile Include="Base\List\HtmlListBuilder.cs" />
     <Compile Include="Base\List\HtmlListItem.cs" />

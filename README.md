@@ -12,6 +12,7 @@ Base CSS
 
 - Lists (not description lists)
 - Buttons
+- Forms (partially implemented)
 
 Components
 ----------

@@ -1,6 +1,7 @@
 ﻿@using BootstrapExtensions.Base
 @using BootstrapExtensions.Base.Button
 @using BootstrapExtensions.Base.Form
+@using BootstrapExtensions.Base.Form.Label
 @using BootstrapExtensions.Components.Alert
 @using (Html.Section("Form", new { id = "form" }))
 {
@@ -11,18 +12,16 @@
     using (Html.Form("Base", "Home", FormMethod.Get, new { @class = "bs-docs-example" }))
     {
         <legend>Legend</legend>
-        <label>Label name</label>
-        <input type="text" placeholder="Type something…">
+        @Html.LabelAndControl("Phone", Html.TextBox("Phone", null, new{placeholder="Give us yer number..."}))
         <span class="help-block">Example block-level help text here.</span>
         <label class="checkbox">
         <input type="checkbox"> Check me out
         </label>
         <button type="submit" class="btn">Submit</button>
     }
-    <pre class="prettyprint linenums">&#64;using (Html.Form()) {
+    <pre class="prettyprint linenums">using (Html.Form()) {
     &lt;legend&gt;Legend&lt;/legend&gt;
-    &lt;label&gt;Label name&lt;/label&gt;
-    &lt;input type="text" placeholder="Type something…"&gt;
+    &#64;Html.LabelAndControl("Phone", Html.TextBox("Phone", null, new{placeholder="Give us yer number..."}))
     &lt;span class="help-block"&gt;Example block-level help text here.&lt;/span&gt;
     &lt;label class="checkbox"&gt;
         &lt;input type="checkbox"&gt; Check me out
@@ -42,7 +41,7 @@
         <input type="text" class="input-medium search-query">
         <button type="submit" class="btn">Search</button>
     }
-    <pre class="prettyprint">&#64;using (Html.SearchForm()) {
+    <pre class="prettyprint">using (Html.SearchForm()) {
     &lt;input type="text" class="input-medium search-query"&gt;
     &lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
 }</pre>
@@ -54,11 +53,11 @@
         <input type="text" class="input-small" placeholder="Email">
         <input type="password" class="input-small" placeholder="Password">
         <label class="checkbox">
-            <input type="checkbox"> Remember me
+            <input type="checkbox"> Remember mex`
         </label>
         <button type="submit" class="btn">Sign in</button>
     }
-<pre class="prettyprint linenums">&#64;using (Html.InlineForm()) {
+<pre class="prettyprint linenums">using (Html.InlineForm()) {
     &lt;input type="text" class="input-small" placeholder="Email"&gt;
     &lt;input type="password" class="input-small" placeholder="Password"&gt;
     &lt;label class="checkbox"&gt;
@@ -68,44 +67,24 @@
 }</pre>
 
     <h3>Horizontal form</h3>
-    <p>Use <code>Html.HorizontalForm()</code> to right align labels and float them to the left, making them appear on the same line as controls. Requires the most markup changes from a default form:</p>
+    <p>Use <code>Html.HorizontalForm()</code> to right align labels and float them to the left, making them appear on the same line as controls:</p>
     using (Html.HorizontalForm("Base", "Home", FormMethod.Get, new { @class = "bs-docs-example" }))
     {
-        <div class="control-group">
-            <label class="control-label" for="inputEmail">Email</label>
-            <div class="controls">
-                <input type="text" id="inputEmail" placeholder="Email">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputPassword">Password</label>
-            <div class="controls">
-                <input type="password" id="inputPassword" placeholder="Password">
-            </div>
-        </div>
+        @Html.LabelAndControl("Email", Html.TextBox("Email", null, new{placeholder="Email"}))
+        @Html.LabelAndControl("Password", Html.TextBox("Password"))
         <div class="control-group">
             <div class="controls">
                 <label class="checkbox">
                     <input type="checkbox"> Remember me
                 </label>
-                <button type="submit" class="btn">Sign in</button>
+                
             </div>
         </div>
     }
-<pre class="prettyprint">&#64;using (Html.HorizontalForm())
+<pre class="prettyprint">using (Html.HorizontalForm())
 {
-    &lt;div class="control-group"&gt;
-        &lt;label class="control-label" for="inputEmail"&gt;Email&lt;/label&gt;
-        &lt;div class="controls"&gt;
-            &lt;input type="text" id="inputEmail" placeholder="Email"&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class="control-group"&gt;
-        &lt;label class="control-label" for="inputPassword"&gt;Password&lt;/label&gt;
-        &lt;div class="controls"&gt;
-            &lt;input type="password" id="inputPassword" placeholder="Password"&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+    &#64;Html.LabelAndControl("Email", Html.TextBox("Email", null, new{placeholder="Email"}))
+    &#64;Html.LabelAndControl("Password", Html.TextBox("Password"))
     &lt;div class="control-group"&gt;
         &lt;div class="controls"&gt;
             &lt;label class="checkbox"&gt;
@@ -115,8 +94,32 @@
         &lt;/div&gt;
     &lt;/div&gt;
 }</pre>
-@*@Html.Alert("Heads up!", "Using Html.LabelAndControl() with horizontal forms will automatically take care of the required markup changes for labels/inputs", Category.Info)*@
+@Html.Alert("Heads up!", "Using <code>Html.LabelAndControl()</code> with horizontal forms will automatically take care of the required markup changes for labels/controls", Category.Info)
 
     <hr class="bs-docs-separator">
-        
-}
+
+    <h2>Form controls</h2>
+
+    <h3>Labels</h3>
+    <p>With the exception of checkboxes and radios, few input types require additional markup, and so existing form code can usually be reused with no changes.</p>
+    <p>It is recommended however to use Bootstrap Extension's <code>Html.LabelAndControl()</code> helper when rendering form controls, as it automatically adjusts the markup dependent on form type (notably horizontal forms)@*, and also offers an easy way to chain input modifiers (including prepended/appended buttons and text and validation states)*@.</p>
+    
+
+    <h3>Validation States</h3>
+    <p>Bootstrap includes validation styles for error, warning, info, and success messages. To use, simply chain the appropriate method:</p>
+    using (Html.HorizontalForm("Base", "Home", FormMethod.Get, new { @class = "bs-docs-example" }))
+    {
+        @Html.LabelAndControl("Warning", "Input with warning", Html.TextBox("Warning")).Warning()
+        @Html.LabelAndControl("Error", "Input with error", Html.TextBox("Error")).Error()
+        @Html.LabelAndControl("Info", "Input with info", Html.TextBox("Info")).Info()
+        @Html.LabelAndControl("Success", "Input with success", Html.TextBox("Success")).Success()
+    }
+    <pre class="prettyprint">using (Html.HorizontalForm("Base", "Home", FormMethod.Get, new { &#64;class = "bs-docs-example" }))
+{
+    &#64;Html.LabelAndControl("Warning", "Input with warning", Html.TextBox("Warning")).Warning()
+    &#64;Html.LabelAndControl("Error", "Input with error", Html.TextBox("Error")).Error()
+    &#64;Html.LabelAndControl("Info", "Input with info", Html.TextBox("Info")).Info()
+    &#64;Html.LabelAndControl("Success", "Input with success", Html.TextBox("Success")).Success()
+}</pre>
+    }
+@Html.Alert("Heads Up!", "Bootstrap currently only supports adding validation states to controls in horizontal forms", Category.Info)
