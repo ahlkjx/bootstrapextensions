@@ -8,12 +8,12 @@ namespace BootstrapExtensions.Base.Form.Label
 {
     public class LabelAndControl : HtmlContainer
     {
-        private static readonly string HorizontalTemplate = "<div {3}><label class=\"control-label\" for=\"{0}\">{1}</label><div class=\"controls\">{2}</div></div>";
-        private static readonly string DefaultTemplate = "<label for=\"{0}\">{1}</label>{2}";
+        private static readonly string HorizontalTemplate = "<div {3}><label class=\"control-label\" for=\"{0}\">{1}</label>    <div class=\"controls\">{2}</div></div>";
+        private static readonly string DefaultTemplate = "<label for=\"{0}\">{1}</label> {2}";
 
         private readonly string _labelFor;
         private readonly string _labelText;
-        private readonly IHtmlString _control;
+        private IHtmlString _control;
         private readonly string _formLayout;
 
         private readonly List<IHtmlString> _prepend = new List<IHtmlString>();
@@ -55,9 +55,28 @@ namespace BootstrapExtensions.Base.Form.Label
             return this;
         }
 
+        public LabelAndControl Prepend(IHtmlString html)
+        {
+            _prepend.Add(html);
+            return this;
+        }
+
         public LabelAndControl Append(string text)
         {
             _append.Add(MvcHtmlString.Create("<span class=\"add-on\">" + text + "</span>"));
+            return this;
+        }
+
+        public LabelAndControl Append(IHtmlString html)
+        {
+            _append.Add(html);
+            return this;
+        }
+
+        public LabelAndControl HelpText(string text, bool inline = true)
+        {
+            var helpCode = string.Format("<span class=\"{0}\">{1}</span>", inline ? "help-inline" : "help-block", text);
+            _control = MvcHtmlString.Create(_control + helpCode);
             return this;
         }
 

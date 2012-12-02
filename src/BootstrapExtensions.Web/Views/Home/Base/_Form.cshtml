@@ -113,8 +113,8 @@
     <p>Add text or buttons before or after any text-based input. Do note that <code>select</code> elements are not supported here.</p>
     using (Html.Form("Base", "Home", FormMethod.Get, new { @class = "bs-docs-example" }))
     {
-        @Html.LabelAndControl(Html.TextBox("Prepend"))
-        @Html.LabelAndControl(Html.TextBox("Append")).Append("Append")
+        @Html.LabelAndControl(Html.TextBox("Prepend")).Prepend("Prepend")<br/>
+        @Html.LabelAndControl(Html.TextBox("Append")).Append("Append")<br/>
         @Html.LabelAndControl(Html.TextBox("PrependAndAppend")).Prepend("Prepend").Append("Append")
     }
     <pre class="prettyprint">using (Html.Form())
@@ -142,3 +142,13 @@
 }</pre>
     }
 @Html.Alert("Heads Up!", "Bootstrap currently only supports adding validation states to controls in horizontal forms", Category.Info)
+
+    <h3>Help Text</h3>    
+    <p>Inline and block level support for help text that appears around form controls.</p>
+    @using (Html.   Form("Base", "Home", FormMethod.Get, new { @class = "bs-docs-example" }))
+    {
+        @Html.LabelAndControl("Inline", Html.TextBox("Inline")).HelpText("Inline help text")
+        @Html.LabelAndControl("Block", Html.TextBox("Block")).HelpText("A longer block of help text that breaks onto a new line and may extend beyond one line.", false)
+    }
+    <pre class="prettyprint">&#64;Html.LabelAndControl("Inline", Html.TextBox("Inline")).HelpText("Inline help text")
+&#64;Html.LabelAndControl("Block", Html.TextBox("Block")).HelpText("A longer block of help text...", false).</pre>
