@@ -3,7 +3,7 @@ Bootstrap Extensions
 
 HtmlHelper extensions to ease use of the Twitter Bootstrap framework in ASP.NET MVC web applications
 
-
+Read the docs at: http://bootstrapextensions.apphb.com/
 
 **Currently implemented:**
 
