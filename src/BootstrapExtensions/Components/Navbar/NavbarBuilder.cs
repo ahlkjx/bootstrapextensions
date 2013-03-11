@@ -34,6 +34,15 @@ namespace BootstrapExtensions.Components.Navbar
         }
 
         /// <summary>
+        /// Display arbitrary html in navbar
+        /// </summary>
+        /// <param name="text"></param>
+        public void Html(string html)
+        {
+            _navbar.InnerHtml += html;
+        }
+
+        /// <summary>
         /// Navigation links
         /// </summary>
         /// <param name="links">An unordered list of links</param>
