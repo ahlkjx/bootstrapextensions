@@ -1,3 +1,5 @@
+## Update: New project supporting Bootstrap v3.0 and with a much improved api over at https://github.com/jordanwallwork/bootstrapcomponents
+
 Bootstrap Extensions
 ====================
 
